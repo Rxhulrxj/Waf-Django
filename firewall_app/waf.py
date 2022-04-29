@@ -240,10 +240,8 @@ def mainfun(Url,posts,types,useragents):
     sum_req_fai = sum_req_fai / len(param_list)
     
     if sum_req_succ >=100:
-        print ("\n\r\n\r   Your Website is Strong!!!!!!\n\r")
         final_res = "Your Website is Strong"
     if sum_req_fai >=100:
-        print ("\n\r\n\r   Bad Security Measures Detected\n\r")
         final_res ="Bad Security Measures Detected"
     return final_res,up_down,net_issue,succ,fai,x,c
 # if __name__ == '__main__':
