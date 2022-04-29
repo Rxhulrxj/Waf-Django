@@ -1,4 +1,3 @@
-from unicodedata import name
 from django.urls import path
 from . import views
 urlpatterns=[
@@ -7,5 +6,4 @@ urlpatterns=[
     path("register/",views.registerPage,name="register"),
     path("login/",views.loginPage,name="login"),
     path("logout/",views.logoutUser,name="logout"),
-    # path("external/",views.external,name="ext_script")
 ]

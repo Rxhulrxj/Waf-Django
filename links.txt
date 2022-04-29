@@ -1,0 +1,2 @@
+http://rest.vulnweb.com/(vulnerable)
+http://testhtml5.vulnweb.com/(not vulnerable)
