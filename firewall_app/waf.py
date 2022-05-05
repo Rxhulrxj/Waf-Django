@@ -1,15 +1,8 @@
 from collections import Counter
-from typing_extensions import final
-from unittest import result
 from urllib.parse import urlparse
-from random import sample
 import requests.exceptions
 import requests
-import argparse
-# import operator
 import sys
-import time
-from . import views
 def mainfun(Url,posts,types,useragents):
     url = Url
     post = posts
@@ -95,11 +88,11 @@ def mainfun(Url,posts,types,useragents):
     def parameters_equal (arg):
         s_arg=arg.split("=")
         param_list[s_arg[0]] = s_arg[1]
-        return;
+        return
 
     def parameters_slash (arg,param_count):
         param_list["param_"+str(param_count)] = arg
-        return;
+        return
 
     if not post:
         if des == 1:

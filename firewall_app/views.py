@@ -73,9 +73,6 @@ def checker(request):
     no_of_requests=""
     up_or_down=""
     net_issue=""
-    # urlinp = request.GET.get('urlinput')
-    # payloadtype = request.GET.get('payloadselect')
-    # print(urlinp)
     urlinp, types, posts, useragents,out = '', 'all', '', '',''
     if request.method == 'POST':
         urlinp = request.POST.get('urlinput')
@@ -84,17 +81,10 @@ def checker(request):
         url = urlinp
         types = payloadtype
         x = waf.mainfun(url, posts, types, useragents)
-        print(x)
         final_res,up_or_down,net_issue,successful,failure,no_of_response,no_of_request=x
         successful_responses=str(successful)
         failure_response=str(failure)
         no_responses=str(no_of_response)
         no_of_requests=str(no_of_request)
-    # res,response_no = x
-    # print(res)
-    # print(response_no)
-        # for output in x:
-        #     out=output
-        #     print(out)
     return render(request, 'checker.html',{"final_result":final_res,"successfulresponse":successful_responses,"failureresponses":failure_response,"noresponse":no_responses,"noofrequest":no_of_requests,"upordown":up_or_down,"netissue":net_issue,"urlsent":urlinp,"paloadsent":types})
 
