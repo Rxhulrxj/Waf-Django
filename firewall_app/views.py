@@ -1,21 +1,8 @@
-from turtle import st
-from unicodedata import name
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
 from .forms import *
-from collections import Counter
-from urllib.parse import urlparse
-from random import sample
-from subprocess import run, PIPE
-import requests.exceptions
-import requests
-import argparse
-# import operator
-import sys
-import time
 from . import waf
 #  Create your views here.
 
