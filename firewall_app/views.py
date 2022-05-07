@@ -1,9 +1,11 @@
+from django.forms import ValidationError
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from . import waf
+from django.forms.utils import ErrorList
 #  Create your views here.
 
 
@@ -18,10 +20,14 @@ def registerPage(request):
         form = CreateUserForm()
         if request.method == 'POST':
             form = CreateUserForm(request.POST)
+            emailvalue= request.POST.get("email")
+            emailverify=User.objects.filter(email=emailvalue)
             if form.is_valid():
-                form.save()
-                user = form.cleaned_data.get('username')
-                return redirect('login')
+                if len(emailverify) == 0:
+                    form.save()
+                    return redirect('login')
+                else:
+                    form.add_error("email","Email Already Exists")  
         context = {'form': form}
         return render(request, 'accounts/sign-up.html', context)
 
@@ -41,9 +47,7 @@ def loginPage(request):
                 return redirect('home')
             else:
                 messages.info(request, 'Username or password is incorrect')
-
-        context = {}
-        return render(request, 'accounts/log-in.html', context)
+        return render(request, 'accounts/log-in.html')
 
 
 def logoutUser(request):

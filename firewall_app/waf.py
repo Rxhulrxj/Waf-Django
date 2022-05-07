@@ -237,5 +237,3 @@ def mainfun(Url,posts,types,useragents):
     if sum_req_fai >=100:
         final_res ="Bad Security Measures Detected"
     return final_res,up_down,net_issue,succ,fai,x,c
-# if __name__ == '__main__':
-#     main()
