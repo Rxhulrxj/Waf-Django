@@ -1,2 +1,3 @@
 http://rest.vulnweb.com/(vulnerable)
 http://testhtml5.vulnweb.com/(not vulnerable)
+https://polyglot.innerht.ml/(vulnerable)
